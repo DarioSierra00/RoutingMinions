@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Minion } from '../interface/minion';
 import { MinionService } from '../services/minion.service';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-minions-filtrados',
   standalone: true,
-  imports: [],
+  imports: [RouterLink,RouterOutlet],
   templateUrl: './minions-filtrados.component.html',
   styleUrl: './minions-filtrados.component.css'
 })

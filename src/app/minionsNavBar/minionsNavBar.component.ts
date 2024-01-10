@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MinionService } from '../services/minion.service';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-minionsNavBar',
@@ -15,12 +15,16 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 export class MinionsNavBarComponent {
   termino:string = ""; 
 
-  constructor(private minionService : MinionService){}
+  constructor(private router : Router){}
 
 
   @Output() emitir:EventEmitter<string> = new EventEmitter<string>();
 
   setTermino(){
     this.emitir.emit(this.termino);
+  }
+
+  toGo(){
+    this.router.navigate(['/minion',this.termino])
   }
 }
