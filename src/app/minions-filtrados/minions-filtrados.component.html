@@ -7,7 +7,7 @@
             <p class="card-text">{{minion.bio}}</p>
             <p class="card-text">Fecha de nacimiento: {{minion.birth}}</p>
             <p class="card-text">{{minion.side}}</p>
-            <a class="nav-link" [routerLink]="['/minion/minionDiv',minion.name]" ariaCurrentWhenActive="page"><button>Ver minion</button></a>
+            <a class="nav-link" [routerLink]="['/minion/minionDiv',minion.id]" ariaCurrentWhenActive="page"><button>Ver minion</button></a>
         </div>
     </div>
 }

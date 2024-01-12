@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Minion } from '../interface/minion';
 import { MinionService } from '../services/minion.service';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
@@ -11,12 +11,17 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './minions-filtrados.component.css'
 })
 export class MinionsFiltradosComponent implements OnInit{
-  @Input() minions:Minion[] = [];
+  minions:Minion[] = [];
   @Input() searchTerm : string = "";
+
 
   constructor(private minionService : MinionService){}
 
   ngOnInit(): void {
-    this.minions = this.minionService.getMinions();
+    this.minionService.getMinions().subscribe({
+      next : (min) => this.minions = min
+    });
   }
+
+  
 }

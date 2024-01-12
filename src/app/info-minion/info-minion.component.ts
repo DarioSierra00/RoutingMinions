@@ -10,14 +10,16 @@ import { MinionService } from '../services/minion.service';
   templateUrl: './info-minion.component.html',
   styleUrl: './info-minion.component.css'
 })
-export class InfoMinionComponent implements OnChanges{
+export class InfoMinionComponent {
 
     @Input() name : string = "";
-    minion! : Minion[];
+    minions! : Minion[];
     
     constructor(private minionService : MinionService){}
 
-    ngOnChanges(): void {
-      this.minion = this.minionService.getFilteredMinions(this.name);
+    ngOnChanges(){
+      this.minionService.getMinionsByName(this.name).subscribe({
+        next : (min) => this.minions = min
+      });
     }
 }
