@@ -19,5 +19,6 @@ export class InfoMinionidComponent implements OnChanges{
     this.minionService.getMinionsById(this.id).subscribe({
       next : (min) => this.minions = min
     });
+
   }
 }

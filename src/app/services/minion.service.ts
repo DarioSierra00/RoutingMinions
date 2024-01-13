@@ -28,8 +28,6 @@ export class MinionService {
    }
 
    getMinionsById(id:string): Observable<Minion[]>{
-    
     return this.http.get<Minion[]>(this.url+"?id="+id)
-     
     }
 }
